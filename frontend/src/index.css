@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Modern Corporate SaaS - Light Mode */
+    --background: 220 14% 96%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 14% 92%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 87%;
+    --input: 220 13% 87%;
+    --ring: 199 89% 48%;
+
+    --radius: 0.375rem;
+
+    /* Sidebar - Matte Dark */
+    --sidebar-background: 222 47% 13%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 47% 18%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 222 47% 20%;
+    --sidebar-ring: 199 89% 48%;
+    --sidebar-muted: 215 20% 55%;
+  }
+
+  .dark {
+    /* Modern Corporate SaaS - Dark Mode */
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 14%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 14%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 222 47% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 47% 18%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 47% 20%;
+    --input: 222 47% 20%;
+    --ring: 199 89% 48%;
+
+    /* Dark Sidebar - Slightly lighter than body */
+    --sidebar-background: 222 47% 15%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 47% 20%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 47% 22%;
+    --sidebar-ring: 199 89% 48%;
+    --sidebar-muted: 215 20% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Code/Data Typography */
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+}
+
+@layer components {
+  /* Professional Matte Card */
+  .card-surface {
+    @apply bg-card border border-border rounded-md;
+  }
+
+  /* Sidebar Surface */
+  .sidebar-surface {
+    background: hsl(var(--sidebar-background));
+    border-right: 1px solid hsl(var(--sidebar-border));
+  }
+
+  /* Data Card with Accent */
+  .report-card {
+    @apply bg-card border border-border rounded-md overflow-hidden;
+    border-left: 3px solid hsl(var(--primary));
+  }
+
+  /* Input Field */
+  .input-field {
+    @apply h-9 px-3 rounded-md bg-secondary border border-border text-foreground text-sm;
+    @apply placeholder:text-muted-foreground;
+    @apply focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary;
+    @apply transition-colors;
+  }
+
+  /* Button Primary */
+  .btn-primary {
+    @apply h-10 px-4 rounded-md bg-primary text-primary-foreground font-medium text-sm;
+    @apply hover:bg-primary/90 transition-colors;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Button Secondary */
+  .btn-secondary {
+    @apply h-9 px-3 rounded-md bg-secondary border border-border text-foreground text-sm;
+    @apply hover:bg-secondary/80 transition-colors;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Icon Button */
+  .btn-icon {
+    @apply h-9 w-9 rounded-md bg-secondary border border-border;
+    @apply flex items-center justify-center;
+    @apply text-muted-foreground hover:text-foreground hover:bg-secondary/80;
+    @apply transition-colors;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Segmented Control */
+  .segmented-control {
+    @apply flex p-0.5 rounded-md bg-secondary border border-border;
+  }
+
+  .segmented-item {
+    @apply flex items-center justify-center gap-2 px-3 py-1.5 rounded text-sm font-medium;
+    @apply text-muted-foreground transition-all cursor-pointer;
+  }
+
+  .segmented-item.active {
+    @apply bg-card text-foreground shadow-sm;
+  }
+
+  /* Custom Scrollbar */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  /* Drop Zone */
+  .drop-zone {
+    @apply border-2 border-dashed border-border rounded-md;
+    @apply flex flex-col items-center justify-center;
+    @apply transition-colors cursor-pointer;
+  }
+
+  .drop-zone:hover,
+  .drop-zone.active {
+    @apply border-primary bg-primary/5;
+  }
+
+  /* Page Thumbnail */
+  .page-thumbnail {
+    @apply relative w-16 h-20 rounded border border-border overflow-hidden;
+    @apply bg-secondary flex-shrink-0;
+  }
+
+  .page-thumbnail img {
+    @apply w-full h-full object-cover;
+  }
+
+  .page-thumbnail-remove {
+    @apply absolute -top-1 -right-1 w-5 h-5 rounded-full;
+    @apply bg-destructive text-destructive-foreground;
+    @apply flex items-center justify-center;
+    @apply opacity-0 transition-opacity cursor-pointer;
+  }
+
+  .page-thumbnail:hover .page-thumbnail-remove {
+    @apply opacity-100;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
