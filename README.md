@@ -1,11 +1,3 @@
----
-
-### 2. ST NeuraNote README
-*(Note: Since this was originally developed during your time at STMicroelectronics, ensure you are only uploading the code architecture or a sanitized, non-proprietary version to your public GitHub).*
-
-Create a file named `README.md` in your project repository and paste this:
-
-```markdown
 # ST NeuraNote: AI-Powered Document Intelligence
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
